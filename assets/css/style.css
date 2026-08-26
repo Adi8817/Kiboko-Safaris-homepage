@@ -1004,6 +1004,38 @@ button:focus-visible,
   }
 }
 
+/* =========================================
+   MOBILE HERO REFINEMENT
+========================================= */
+
+
+/* =========================================
+   MOBILE HERO HEIGHT FIX
+========================================= */
+
+@media (max-width: 639px) {
+
+  .hero {
+    min-height: 0;
+    height: 420px;
+  }
+
+  .hero__slide,
+  .hero__media,
+  .hero__image {
+    height: 620px;
+  }
+
+  .hero__content {
+    height: 100%;
+    padding: 0 20px 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero__scroll-mark::after {
     animation: none;
