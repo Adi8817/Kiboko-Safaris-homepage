@@ -123,6 +123,15 @@
 
   /* ---------- Dropdown accordions (mobile) / hover (desktop via CSS) ---------- */
   var dropdownParents = document.querySelectorAll('.has-dropdown');
+  var subDropdownParents = document.querySelectorAll('.dropdown__has-sub');
+
+  function closeAllSubmenus() {
+    subDropdownParents.forEach(function (s) {
+      s.classList.remove('is-open');
+      s.querySelector(':scope > .dropdown__sub-trigger').setAttribute('aria-expanded', 'false');
+    });
+  }
+
   dropdownParents.forEach(function (parent) {
     var trigger = parent.querySelector(':scope > .primary-nav__link');
     trigger.addEventListener('click', function (e) {
@@ -134,11 +143,68 @@
         p.classList.remove('is-open');
         p.querySelector(':scope > .primary-nav__link').setAttribute('aria-expanded', 'false');
       });
+      closeAllSubmenus();
       if (!isOpen) {
         parent.classList.add('is-open');
         trigger.setAttribute('aria-expanded', 'true');
       }
     });
+
+    /* Desktop: hovering a sibling item must close any dropdown left open by a click */
+    parent.addEventListener('mouseenter', function () {
+      var isDesktop = window.matchMedia('(min-width: 1100px)').matches;
+      if (!isDesktop) return;
+      dropdownParents.forEach(function (p) {
+        if (p !== parent && p.classList.contains('is-open')) {
+          p.classList.remove('is-open');
+          p.querySelector(':scope > .primary-nav__link').setAttribute('aria-expanded', 'false');
+          closeAllSubmenus();
+        }
+      });
+    });
+  });
+
+  /* ---------- Destinations: nested circuit submenus ---------- */
+  subDropdownParents.forEach(function (sub) {
+    var subTrigger = sub.querySelector(':scope > .dropdown__sub-trigger');
+    subTrigger.addEventListener('click', function (e) {
+      e.preventDefault(); /* toggles the nested submenu (desktop flyout / mobile accordion) */
+      var isOpen = sub.classList.contains('is-open');
+      sub.parentElement.querySelectorAll(':scope > .dropdown__has-sub').forEach(function (s) {
+        s.classList.remove('is-open');
+        s.querySelector(':scope > .dropdown__sub-trigger').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        sub.classList.add('is-open');
+        subTrigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    /* Desktop: hovering a sibling circuit must close any submenu left open by a click */
+    sub.addEventListener('mouseenter', function () {
+      var isDesktop = window.matchMedia('(min-width: 1100px)').matches;
+      if (!isDesktop) return;
+      sub.parentElement.querySelectorAll(':scope > .dropdown__has-sub').forEach(function (s) {
+        if (s !== sub && s.classList.contains('is-open')) {
+          s.classList.remove('is-open');
+          s.querySelector(':scope > .dropdown__sub-trigger').setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  });
+
+  /* Desktop: clicking outside the nav closes any dropdown left open by a click */
+  document.addEventListener('click', function (e) {
+    var isDesktop = window.matchMedia('(min-width: 1100px)').matches;
+    if (!isDesktop) return;
+    if (primaryNav.contains(e.target)) return;
+    dropdownParents.forEach(function (p) {
+      if (p.classList.contains('is-open')) {
+        p.classList.remove('is-open');
+        p.querySelector(':scope > .primary-nav__link').setAttribute('aria-expanded', 'false');
+      }
+    });
+    closeAllSubmenus();
   });
 
   /* Reset mobile menu / dropdown state when resizing past the desktop breakpoint */
@@ -146,6 +212,7 @@
     if (window.matchMedia('(min-width: 1100px)').matches) {
       closeMobileMenu();
       dropdownParents.forEach(function (p) { p.classList.remove('is-open'); });
+      closeAllSubmenus();
     }
   });
 
@@ -165,34 +232,86 @@
     revealEls.forEach(function (el) { el.classList.add('in-view'); });
   }
 
+  /* ---------- Gallery: view more ---------- */
+  var galleryViewMoreBtn = document.getElementById('galleryViewMore');
+  var galleryHiddenItems = Array.prototype.slice.call(document.querySelectorAll('.gallery__item[hidden]'));
+  if (galleryViewMoreBtn) {
+    galleryViewMoreBtn.addEventListener('click', function () {
+      galleryHiddenItems.forEach(function (item) {
+        item.hidden = false;
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () { item.classList.add('in-view'); });
+        });
+      });
+      galleryViewMoreBtn.hidden = true;
+    });
+  }
+
   /* ---------- Gallery lightbox ---------- */
   var lightbox = document.getElementById('lightbox');
   var lightboxImage = document.getElementById('lightboxImage');
   var lightboxClose = document.getElementById('lightboxClose');
+  var lightboxPrev = document.getElementById('lightboxPrev');
+  var lightboxNext = document.getElementById('lightboxNext');
+  var lightboxCounter = document.getElementById('lightboxCounter');
+  var galleryItems = Array.prototype.slice.call(document.querySelectorAll('.gallery__item'));
+  var lightboxIndex = 0;
 
-  document.querySelectorAll('.gallery__item').forEach(function (item) {
-    item.addEventListener('click', function () {
-      var fullSrc = item.getAttribute('data-full');
-      var altText = item.querySelector('img').getAttribute('alt');
-      lightboxImage.setAttribute('src', fullSrc);
-      lightboxImage.setAttribute('alt', altText);
-      lightbox.hidden = false;
-      document.body.style.overflow = 'hidden';
-    });
-  });
+  function updateLightboxImage() {
+    var item = galleryItems[lightboxIndex];
+    var fullSrc = item.getAttribute('data-full');
+    var altText = item.querySelector('img').getAttribute('alt');
+    lightboxImage.setAttribute('src', fullSrc);
+    lightboxImage.setAttribute('alt', altText);
+    lightboxCounter.textContent = (lightboxIndex + 1) + ' / ' + galleryItems.length;
+  }
+
+  function openLightbox(index) {
+    lightboxIndex = index;
+    updateLightboxImage();
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function stepLightbox(dir) {
+    lightboxIndex = (lightboxIndex + dir + galleryItems.length) % galleryItems.length;
+    updateLightboxImage();
+  }
 
   function closeLightbox() {
     lightbox.hidden = true;
     lightboxImage.setAttribute('src', '');
     document.body.style.overflow = '';
   }
+
+  galleryItems.forEach(function (item, idx) {
+    item.addEventListener('click', function () { openLightbox(idx); });
+  });
+
   lightboxClose.addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', function (e) { e.stopPropagation(); stepLightbox(-1); });
+  lightboxNext.addEventListener('click', function (e) { e.stopPropagation(); stepLightbox(1); });
   lightbox.addEventListener('click', function (e) {
     if (e.target === lightbox) closeLightbox();
   });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !lightbox.hidden) closeLightbox();
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') stepLightbox(1);
+    if (e.key === 'ArrowLeft') stepLightbox(-1);
   });
+
+  /* Swipe navigation on touch devices */
+  var lightboxTouchStartX = null;
+  lightbox.addEventListener('touchstart', function (e) {
+    lightboxTouchStartX = e.changedTouches[0].clientX;
+  }, { passive: true });
+  lightbox.addEventListener('touchend', function (e) {
+    if (lightboxTouchStartX === null) return;
+    var dx = e.changedTouches[0].clientX - lightboxTouchStartX;
+    if (Math.abs(dx) > 40) stepLightbox(dx < 0 ? 1 : -1);
+    lightboxTouchStartX = null;
+  }, { passive: true });
 
   /* ---------- Testimonial carousel ---------- */
   var testiTrack = document.getElementById('testimonialsTrack');
