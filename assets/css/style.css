@@ -1161,7 +1161,7 @@ button:focus-visible,
 
 @media (min-width: 900px) {
   .safari-story {
-    padding: 100px 0 50px;
+    padding: 60px 0 50px;
   }
 
   .safari-story__grid {
@@ -1308,7 +1308,7 @@ button:focus-visible,
    ========================================================================== */
 .safaris {
   background: var(--sand-light);
-  padding: 72px 0;
+  padding: 42px 0;
 }
 
 .safaris__head {
