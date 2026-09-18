@@ -28,15 +28,15 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <script src="assets/js/image-slot.js"></script>
   </head>
   <body>
+    <div class="ks-home" id="ks-home">
     <!-- ============================================================
-     HEADER  (WordPress: header.php)
+     HEADER — Laravel: extract to a header partial (e.g. resources/views/partials/homepage-header.blade.php)
      ============================================================ -->
-    <header class="site-header" id="site-header">
-      <div class="container site-header__inner">
-        <a href="index.html" class="site-header__logo">
+    <header class="ks-site-header" id="ks-site-header">
+      <div class="ks-container ks-site-header__inner">
+        <a href="index.html" class="ks-site-header__logo">
           <!-- Client logo, pulled from the live Kiboko Safaris site -->
           <img
             src="https://www.kibokosafaris.com/frontassets/images/logo-1.png"
@@ -47,24 +47,24 @@
         </a>
 
         <button
-          class="nav-toggle"
-          id="navToggle"
+          class="ks-nav-toggle"
+          id="ks-navToggle"
           aria-expanded="false"
-          aria-controls="primaryNav"
+          aria-controls="ks-primaryNav"
           aria-label="Toggle navigation menu"
         >
-          <span class="nav-toggle__bar"></span>
-          <span class="nav-toggle__bar"></span>
-          <span class="nav-toggle__bar"></span>
+          <span class="ks-nav-toggle__bar"></span>
+          <span class="ks-nav-toggle__bar"></span>
+          <span class="ks-nav-toggle__bar"></span>
         </button>
 
-        <nav class="primary-nav" id="primaryNav" aria-label="Primary">
-          <ul class="primary-nav__list">
-            <li class="has-dropdown">
-              <button class="primary-nav__link" aria-expanded="false">
+        <nav class="ks-primary-nav" id="ks-primaryNav" aria-label="Primary">
+          <ul class="ks-primary-nav__list">
+            <li class="ks-has-dropdown">
+              <button class="ks-primary-nav__link" aria-expanded="false">
                 About
               </button>
-              <ul class="dropdown">
+              <ul class="ks-dropdown">
                 <li><a href="#">Why Choose Us</a></li>
                 <li><a href="#">Our Safari Vehicle</a></li>
                 <li><a href="#">How the Payment Works</a></li>
@@ -72,23 +72,23 @@
                 <li><a href="#">FAQ</a></li>
               </ul>
             </li>
-            <li class="has-dropdown">
-              <button class="primary-nav__link" aria-expanded="false">
+            <li class="ks-has-dropdown">
+              <button class="ks-primary-nav__link" aria-expanded="false">
                 Destinations
               </button>
-              <ul class="dropdown dropdown--destinations">
-                <li class="dropdown__has-sub">
+              <ul class="ks-dropdown ks-dropdown--destinations">
+                <li class="ks-dropdown__has-sub">
                   <a
                     href="#"
-                    class="dropdown__sub-trigger"
+                    class="ks-dropdown__sub-trigger"
                     aria-haspopup="true"
                     aria-expanded="false"
                     >Eastern Circuit Safari
-                    <span class="dropdown__sub-arrow" aria-hidden="true"
+                    <span class="ks-dropdown__sub-arrow" aria-hidden="true"
                       >&rarr;</span
                     ></a
                   >
-                  <ul class="dropdown__submenu">
+                  <ul class="ks-dropdown__submenu">
                     <li><a href="#">Mafia Island</a></li>
                     <li><a href="#">Bagamoyo Historic Town</a></li>
                     <li><a href="#">Zanzibar Island</a></li>
@@ -97,18 +97,18 @@
                     <li><a href="#">Saadani National Park</a></li>
                   </ul>
                 </li>
-                <li class="dropdown__has-sub">
+                <li class="ks-dropdown__has-sub">
                   <a
                     href="#"
-                    class="dropdown__sub-trigger"
+                    class="ks-dropdown__sub-trigger"
                     aria-haspopup="true"
                     aria-expanded="false"
                     >Northern Circuit Safari
-                    <span class="dropdown__sub-arrow" aria-hidden="true"
+                    <span class="ks-dropdown__sub-arrow" aria-hidden="true"
                       >&rarr;</span
                     ></a
                   >
-                  <ul class="dropdown__submenu">
+                  <ul class="ks-dropdown__submenu">
                     <li><a href="#">Lake Manyara National Park</a></li>
                     <li>
                       <a href="#">Mto wa Mbu Safari and Cultural Tourism</a>
@@ -122,35 +122,35 @@
                     <li><a href="#">Saanane Island National Park</a></li>
                   </ul>
                 </li>
-                <li class="dropdown__has-sub">
+                <li class="ks-dropdown__has-sub">
                   <a
                     href="#"
-                    class="dropdown__sub-trigger"
+                    class="ks-dropdown__sub-trigger"
                     aria-haspopup="true"
                     aria-expanded="false"
                     >Southern Circuit Safari
-                    <span class="dropdown__sub-arrow" aria-hidden="true"
+                    <span class="ks-dropdown__sub-arrow" aria-hidden="true"
                       >&rarr;</span
                     ></a
                   >
-                  <ul class="dropdown__submenu">
+                  <ul class="ks-dropdown__submenu">
                     <li><a href="#">Mikumi National Park</a></li>
                     <li><a href="#">Ruaha National Park</a></li>
                     <li><a href="#">Selous National Park</a></li>
                   </ul>
                 </li>
-                <li class="dropdown__has-sub">
+                <li class="ks-dropdown__has-sub">
                   <a
                     href="#"
-                    class="dropdown__sub-trigger"
+                    class="ks-dropdown__sub-trigger"
                     aria-haspopup="true"
                     aria-expanded="false"
                     >Western Circuit Safari
-                    <span class="dropdown__sub-arrow" aria-hidden="true"
+                    <span class="ks-dropdown__sub-arrow" aria-hidden="true"
                       >&rarr;</span
                     ></a
                   >
-                  <ul class="dropdown__submenu">
+                  <ul class="ks-dropdown__submenu">
                     <li><a href="#">Katavi National Park</a></li>
                     <li><a href="#">Gombe National Park</a></li>
                     <li><a href="#">Lake Tanganyika</a></li>
@@ -174,13 +174,13 @@
                 <li><a href="#">Al Wakrah</a></li>
               </ul>
             </li>
-            <li class="has-dropdown">
-              <button class="primary-nav__link" aria-expanded="false">
+            <li class="ks-has-dropdown">
+              <button class="ks-primary-nav__link" aria-expanded="false">
                 Safari Experiences
               </button>
-              <div class="dropdown dropdown--mega">
-                <div class="dropdown__group">
-                  <span class="dropdown__label">By Style</span>
+              <div class="ks-dropdown ks-dropdown--mega">
+                <div class="ks-dropdown__group">
+                  <span class="ks-dropdown__label">By Style</span>
                   <ul>
                     <li><a href="#">Great Migration Safari</a></li>
                     <li><a href="#">Tanzania Luxury Safari</a></li>
@@ -191,8 +191,8 @@
                     <li><a href="#">Safari For All</a></li>
                   </ul>
                 </div>
-                <div class="dropdown__group">
-                  <span class="dropdown__label">Popular Packages</span>
+                <div class="ks-dropdown__group">
+                  <span class="ks-dropdown__label">Popular Packages</span>
                   <ul>
                     <li><a href="#">Tanzania Safari Tours</a></li>
                     <li><a href="#">Gorilla Trekking Uganda</a></li>
@@ -203,33 +203,33 @@
                 </div>
               </div>
             </li>
-            <li class="has-dropdown">
-              <button class="primary-nav__link" aria-expanded="false">
+            <li class="ks-has-dropdown">
+              <button class="ks-primary-nav__link" aria-expanded="false">
                 Trekking
               </button>
-              <ul class="dropdown">
+              <ul class="ks-dropdown">
                 <li><a href="#">Kilimanjaro Trekking</a></li>
                 <li><a href="#">Mount Meru Trekking</a></li>
                 <li><a href="#">Usambara Mountains Trekking</a></li>
                 <li><a href="#">Mount Oldonyo Lengai Climbing</a></li>
               </ul>
             </li>
-            <li class="has-dropdown">
-              <button class="primary-nav__link" aria-expanded="false">
+            <li class="ks-has-dropdown">
+              <button class="ks-primary-nav__link" aria-expanded="false">
                 Community
               </button>
-              <ul class="dropdown">
+              <ul class="ks-dropdown">
                 <li><a href="#">Volunteering in Tanzania</a></li>
                 <li><a href="#">Learn Swahili</a></li>
                 <li><a href="#">Learn Tanzanian Cultures</a></li>
                 <li><a href="#">Support African Women Entrepreneurs</a></li>
               </ul>
             </li>
-            <li class="has-dropdown">
-              <button class="primary-nav__link" aria-expanded="false">
+            <li class="ks-has-dropdown">
+              <button class="ks-primary-nav__link" aria-expanded="false">
                 Contact
               </button>
-              <ul class="dropdown">
+              <ul class="ks-dropdown">
                 <li><a href="#">Enquire Now</a></li>
                 <li><a href="#">Contact &amp; Booking Request</a></li>
               </ul>
@@ -237,21 +237,21 @@
           </ul>
         </nav>
 
-        <a href="https://www.kibokosafaris.com/contact-us" class="site-header__cta btn btn--gold"
+        <a href="https://www.kibokosafaris.com/contact-us" class="ks-site-header__cta ks-btn ks-btn--gold"
           >Plan Your Safari</a
         >
       </div>
     </header>
 
     <!-- ============================================================
-     MAIN CONTENT  (WordPress: front-page.php / page-home.php)
+     MAIN CONTENT — Laravel: this is the homepage view body
      ============================================================ -->
     <main>
       <!-- HERO SLIDER -->
-      <section class="hero" id="heroSlider">
-        <div class="hero__slides">
-          <div class="hero-slide is-active" data-slide>
-            <div class="hero-slide__media">
+      <section class="ks-hero" id="ks-heroSlider">
+        <div class="ks-hero__slides">
+          <div class="ks-hero-slide ks-is-active" data-slide>
+            <div class="ks-hero-slide__media">
               <!-- Placeholder photography — replace with client's real safari imagery -->
               <img
                 src="assets/images/kibikobanner1.jpeg"
@@ -259,62 +259,62 @@
                 loading="eager"
               />
             </div>
-            <div class="hero-slide__overlay"></div>
+            <div class="ks-hero-slide__overlay"></div>
           </div>
 
-          <div class="hero-slide" data-slide>
-            <div class="hero-slide__media">
+          <div class="ks-hero-slide" data-slide>
+            <div class="ks-hero-slide__media">
               <img
                 src="assets/images/kibikobanner2.jpeg"
                 alt="Two hippos interacting in a river"
                 loading="eager"
               />
             </div>
-            <div class="hero-slide__overlay"></div>
+            <div class="ks-hero-slide__overlay"></div>
           </div>
 
-          <div class="hero-slide" data-slide>
-            <div class="hero-slide__media">
+          <div class="ks-hero-slide" data-slide>
+            <div class="ks-hero-slide__media">
               <img
                 src="assets/images/img18.jpeg"
                 alt="Guests sharing a candlelit dinner at a safari lodge"
                 loading="eager"
               />
             </div>
-            <div class="hero-slide__overlay"></div>
+            <div class="ks-hero-slide__overlay"></div>
           </div>
         </div>
 
-        <div class="hero__content">
-          <h1 class="hero-slide__title reveal-hero">
-            <span class="hero-slide__intro">Experience the Wild Side</span
-            ><br /><span class="hero-slide__highlight"
+        <div class="ks-hero__content">
+          <h1 class="ks-hero-slide__title ks-reveal-hero">
+            <span class="ks-hero-slide__intro">Experience the Wild Side</span
+            ><br /><span class="ks-hero-slide__highlight"
               >of Africa on an African Safari
             </span>
           </h1>
-          <p class="hero-slide__lead reveal-hero">
+          <p class="ks-hero-slide__lead ks-reveal-hero">
            We offer customized, group and private safaris in Tanzania, Kenya & Zanzibar Africa.
           </p>
-          <div class="hero__ctas reveal-hero">
+          <div class="ks-hero__ctas ks-reveal-hero">
             <a
               href="https://www.kibokosafaris.com/contact-us"
-              class="btn btn--hero"
+              class="ks-btn ks-btn--hero"
               >Plan Your Safari</a
             >
-            <!-- <a href="#safaris" class="btn btn--outline-light"
+            <!-- <a href="#ks-safaris" class="ks-btn ks-btn--outline-light"
               >Explore Experiences</a
             > -->
           </div>
-          <!-- <dl class="hero__trust" aria-label="Kiboko Safaris at a glance">
-            <div class="hero__trust-item">
+          <!-- <dl class="ks-hero__trust" aria-label="Kiboko Safaris at a glance">
+            <div class="ks-hero__trust-item">
               <dt>5+ Years</dt>
               <dd>Local expertise</dd>
             </div>
-            <div class="hero__trust-item">
+            <div class="ks-hero__trust-item">
               <dt>50+ Journeys</dt>
               <dd>Personally planned</dd>
             </div>
-            <div class="hero__trust-item">
+            <div class="ks-hero__trust-item">
               <dt>98% Guests</dt>
               <dd>Would travel again</dd>
             </div>
@@ -322,8 +322,8 @@
         </div>
 
         <button
-          class="hero__arrow hero__arrow--prev"
-          id="heroPrev"
+          class="ks-hero__arrow ks-hero__arrow--prev"
+          id="ks-heroPrev"
           aria-label="Previous slide"
         >
           <svg
@@ -338,8 +338,8 @@
           </svg>
         </button>
         <button
-          class="hero__arrow hero__arrow--next"
-          id="heroNext"
+          class="ks-hero__arrow ks-hero__arrow--next"
+          id="ks-heroNext"
           aria-label="Next slide"
         >
           <svg
@@ -355,63 +355,63 @@
         </button>
 
         <div
-          class="hero__dots"
-          id="heroDots"
+          class="ks-hero__dots"
+          id="ks-heroDots"
           role="tablist"
           aria-label="Slide navigation"
         >
           <button
-            class="hero__dot is-active"
+            class="ks-hero__dot ks-is-active"
             data-dot="0"
             role="tab"
             aria-selected="true"
             aria-label="Slide 1"
           ></button>
           <button
-            class="hero__dot"
+            class="ks-hero__dot"
             data-dot="1"
             role="tab"
             aria-selected="false"
             aria-label="Slide 2"
           ></button>
           <button
-            class="hero__dot"
+            class="ks-hero__dot"
             data-dot="2"
             role="tab"
             aria-selected="false"
             aria-label="Slide 3"
           ></button>
         </div>
-        <a class="hero__scroll" href="#about">
+        <a class="ks-hero__scroll" href="#ks-about">
           <span>Discover Kiboko</span>
-          <span class="hero__scroll-mark" aria-hidden="true"></span>
+          <span class="ks-hero__scroll-mark" aria-hidden="true"></span>
         </a>
       </section>
 
       <!-- LEAD GENERATION -->
-      <section class="lead-gen" id="plan-safari">
-        <div class="container lead-gen__grid">
-          <div class="lead-gen__info reveal">
-            <p class="eyebrow">
-              <span class="destinations__rule" aria-hidden="true"></span>Plan
+      <section class="ks-lead-gen" id="ks-plan-safari">
+        <div class="ks-container ks-lead-gen__grid">
+          <div class="ks-lead-gen__info ks-reveal">
+            <p class="ks-eyebrow">
+              <span class="ks-destinations__rule" aria-hidden="true"></span>Plan
               Your Journey
             </p>
-            <h2 class="section-title">
+            <h2 class="ks-section-title">
               Start Planning Your
-              <span class="why-kiboko__accent">Dream African Safari</span>
+              <span class="ks-why-kiboko__accent">Dream African Safari</span>
             </h2>
-            <p class="lead-gen__desc">
+            <p class="ks-lead-gen__desc">
               Speak with our safari specialists and receive a personalized
               itinerary tailored to your travel style, preferred destinations,
               accommodation level, and budget.
             </p>
-            <ul class="lead-gen__trust">
+            <ul class="ks-lead-gen__trust">
               <li>Tailor-Made Itineraries</li>
               <li>Local Safari Experts</li>
               <li>Fast Response Time</li>
               <li>No Obligation Consultation</li>
             </ul>
-            <div class="lead-gen__image reveal reveal--img">
+            <div class="ks-lead-gen__image ks-reveal ks-reveal--img">
               <img
                 src="assets/images/img7.jpeg"
                 alt="Guests enjoying a candlelit dinner at a safari lodge"
@@ -420,12 +420,12 @@
             </div>
           </div>
 
-          <div class="lead-gen__form-card reveal">
-            <span class="lead-gen__badge">Free Consultation</span>
-            <h3 class="lead-gen__form-title">Request Your Itinerary</h3>
-            <form class="lead-gen__form" onsubmit="return false;">
-              <div class="lead-gen__row">
-                <label class="lead-gen__field">
+          <div class="ks-lead-gen__form-card ks-reveal">
+            <span class="ks-lead-gen__badge">Free Consultation</span>
+            <h3 class="ks-lead-gen__form-title">Request Your Itinerary</h3>
+            <form class="ks-lead-gen__form" onsubmit="return false;">
+              <div class="ks-lead-gen__row">
+                <label class="ks-lead-gen__field">
                   <span>Full Name</span>
                   <input
                     type="text"
@@ -434,7 +434,7 @@
                     required
                   />
                 </label>
-                <label class="lead-gen__field">
+                <label class="ks-lead-gen__field">
                   <span>Email Address</span>
                   <input
                     type="email"
@@ -444,8 +444,8 @@
                   />
                 </label>
               </div>
-              <div class="lead-gen__row">
-                <label class="lead-gen__field">
+              <div class="ks-lead-gen__row">
+                <label class="ks-lead-gen__field">
                   <span>Phone Number</span>
                   <input
                     type="tel"
@@ -453,7 +453,7 @@
                     placeholder="+1 (555) 000-0000"
                   />
                 </label>
-                <label class="lead-gen__field">
+                <label class="ks-lead-gen__field">
                   <span>Travel Destination</span>
                   <select name="destination">
                     <option value="">Select a destination</option>
@@ -466,8 +466,8 @@
                   </select>
                 </label>
               </div>
-              <div class="lead-gen__row">
-                <label class="lead-gen__field">
+              <div class="ks-lead-gen__row">
+                <label class="ks-lead-gen__field">
                   <span>Preferred Travel Month</span>
                   <input
                     type="text"
@@ -475,7 +475,7 @@
                     placeholder="e.g. June 2027"
                   />
                 </label>
-                <label class="lead-gen__field">
+                <label class="ks-lead-gen__field">
                   <span>Number of Travelers</span>
                   <input
                     type="number"
@@ -485,7 +485,7 @@
                   />
                 </label>
               </div>
-              <label class="lead-gen__field lead-gen__field--full">
+              <label class="ks-lead-gen__field ks-lead-gen__field--full">
                 <span>Message</span>
                 <textarea
                   name="message"
@@ -493,10 +493,10 @@
                   placeholder="Tell us about the safari you're dreaming of..."
                 ></textarea>
               </label>
-              <button type="submit" class="btn btn--gold lead-gen__submit">
+              <button type="submit" class="ks-btn ks-btn--gold ks-lead-gen__submit">
                 Plan My Safari
               </button>
-              <p class="lead-gen__note">
+              <p class="ks-lead-gen__note">
                 We typically respond within 24 hours.
               </p>
             </form>
@@ -505,11 +505,11 @@
       </section>
 
       <!-- ABOUT KIBOKO -->
-      <section class="safari-story" id="about">
-        <div class="container safari-story__grid">
-          <div class="safari-story__visual">
+      <section class="ks-safari-story" id="ks-about">
+        <div class="ks-container ks-safari-story__grid">
+          <div class="ks-safari-story__visual">
             <div
-              class="safari-story__img safari-story__img--main reveal reveal--img"
+              class="ks-safari-story__img ks-safari-story__img--main ks-reveal ks-reveal--img"
             >
               <img
                 src="assets/images/kibikobanner3.jpeg"
@@ -517,9 +517,9 @@
                 loading="lazy"
               />
             </div>
-            <div class="safari-story__col">
+            <div class="ks-safari-story__col">
               <div
-                class="safari-story__img safari-story__img--sm reveal reveal--img"
+                class="ks-safari-story__img ks-safari-story__img--sm ks-reveal ks-reveal--img"
               >
                 <img
                   src="assets/images/img3.jpeg"
@@ -528,7 +528,7 @@
                 />
               </div>
               <div
-                class="safari-story__img safari-story__img--sm reveal reveal--img"
+                class="ks-safari-story__img ks-safari-story__img--sm ks-reveal ks-reveal--img"
               >
                 <img
                   src="assets/images/img11.jpeg"
@@ -537,22 +537,22 @@
                 />
               </div>
             </div>
-            <!-- <div class="safari-story__rating reveal">
-          <span class="safari-story__rating-score">5.0 &#9733;</span>
-          <span class="safari-story__rating-label">Rated by 120+ travelers</span>
+            <!-- <div class="ks-safari-story__rating ks-reveal">
+          <span class="ks-safari-story__rating-score">5.0 &#9733;</span>
+          <span class="ks-safari-story__rating-label">Rated by 120+ travelers</span>
         </div> -->
           </div>
 
-          <div class="safari-story__content reveal">
-            <p class="eyebrow">About Kiboko Safaris</p>
-            <h2 class="safari-story__headline">
+          <div class="ks-safari-story__content ks-reveal">
+            <p class="ks-eyebrow">About Kiboko Safaris</p>
+            <h2 class="ks-safari-story__headline">
               African Wildlife Safari &amp; Tours<span
-                class="safari-story__headline-sub"
+                class="ks-safari-story__headline-sub"
                 >Book Now For 2027</span
               >
             </h2>
 
-            <p class="safari-story__paragraph">
+            <p class="ks-safari-story__paragraph">
               Have you ever dreamed of seeing the amazing wildlife of Africa up
               close? If so, then an African wildlife safari is the perfect
               vacation for you. From the majestic lions and elephants of the
@@ -570,33 +570,33 @@
               >
             </p>
 
-            <!-- <a href="https://www.kibokosafaris.com/about-us" class="btn btn--hero">Learn More</a> -->
+            <!-- <a href="https://www.kibokosafaris.com/about-us" class="ks-btn ks-btn--hero">Learn More</a> -->
           </div>
         </div>
       </section>
 
       <!-- WHY KIBOKO -->
-      <section class="why-kiboko">
-        <div class="container">
-          <div class="section-head section-head--center why-kiboko__head">
-            <!-- <span class="why-kiboko__badge"
-              ><span class="why-kiboko__badge-dot" aria-hidden="true"></span>Why
+      <section class="ks-why-kiboko">
+        <div class="ks-container">
+          <div class="ks-section-head ks-section-head--center ks-why-kiboko__head">
+            <!-- <span class="ks-why-kiboko__badge"
+              ><span class="ks-why-kiboko__badge-dot" aria-hidden="true"></span>Why
               Choose Kiboko</span
             > -->
-            <h2 class="section-title">
+            <h2 class="ks-section-title">
               Why Choose
-              <span class="why-kiboko__accent">Kiboko Safaris</span>
+              <span class="ks-why-kiboko__accent">Kiboko Safaris</span>
             </h2>
-            <p class="section-sub">
+            <p class="ks-section-sub">
               Every journey is crafted by safari specialists who know Africa
               beyond the guidebooks.
             </p>
-            <span class="why-kiboko__divider" aria-hidden="true"></span>
+            <span class="ks-why-kiboko__divider" aria-hidden="true"></span>
           </div>
 
-          <div class="why-grid">
-            <div class="why-card reveal">
-              <span class="why-card__icon" aria-hidden="true">
+          <div class="ks-why-grid">
+            <div class="ks-why-card ks-reveal">
+              <span class="ks-why-card__icon" aria-hidden="true">
                 <svg
                   width="30"
                   height="30"
@@ -619,8 +619,8 @@
               </p>
             </div>
 
-            <div class="why-card reveal">
-              <span class="why-card__icon" aria-hidden="true">
+            <div class="ks-why-card ks-reveal">
+              <span class="ks-why-card__icon" aria-hidden="true">
                 <svg
                   width="30"
                   height="30"
@@ -639,8 +639,8 @@
               </p>
             </div>
 
-            <div class="why-card reveal">
-              <span class="why-card__icon" aria-hidden="true">
+            <div class="ks-why-card ks-reveal">
+              <span class="ks-why-card__icon" aria-hidden="true">
                 <svg
                   width="30"
                   height="30"
@@ -665,83 +665,83 @@
       </section>
 
       <!-- DESTINATIONS -->
-      <section class="destinations" id="destinations">
-        <div class="container">
-          <div class="section-head destinations__head">
-            <p class="eyebrow">
-              <span class="destinations__rule" aria-hidden="true"></span>Where
+      <section class="ks-destinations" id="ks-destinations">
+        <div class="ks-container">
+          <div class="ks-section-head ks-destinations__head">
+            <p class="ks-eyebrow">
+              <span class="ks-destinations__rule" aria-hidden="true"></span>Where
               to go
             </p>
-            <h2 class="section-title">
-              Explore the <span class="destinations__accent">Destinations</span>
+            <h2 class="ks-section-title">
+              Explore the <span class="ks-destinations__accent">Destinations</span>
             </h2>
-            <p class="section-head__note">
+            <p class="ks-section-head__note">
               Five countries, one continent of terrain — from the Mara's grass
               plains to Rwanda's misted forests.
             </p>
           </div>
-          <div class="dest-grid">
-            <a href="https://www.kibokosafaris.com/kenya-tour" class="dest-card dest-card--large reveal">
+          <div class="ks-dest-grid">
+            <a href="https://www.kibokosafaris.com/kenya-tour" class="ks-dest-card ks-dest-card--large ks-reveal">
               <img
                 src="assets/images/img6.jpeg"
                 alt="Cheetah surveying the plains"
                 loading="lazy"
               />
-              <span class="dest-card__scrim"></span>
-              <span class="dest-card__text">
-                <span class="dest-card__title">Kenya</span>
-                <span class="dest-card__sub"
+              <span class="ks-dest-card__scrim"></span>
+              <span class="ks-dest-card__text">
+                <span class="ks-dest-card__title">Kenya</span>
+                <span class="ks-dest-card__sub"
                   >Masai Mara &amp; the Great Migration</span
                 >
               </span>
             </a>
-            <a href="https://www.kibokosafaris.com/tanzania-tour" class="dest-card reveal">
+            <a href="https://www.kibokosafaris.com/tanzania-tour" class="ks-dest-card ks-reveal">
               <img
                 src="assets/images/img14.jpeg"
                 alt="Ancient baobab tree against a dramatic sky"
                 loading="lazy"
               />
-              <span class="dest-card__scrim"></span>
-              <span class="dest-card__text">
-                <span class="dest-card__title">Tanzania</span>
-                <span class="dest-card__sub">Serengeti &amp; Ngorongoro</span>
+              <span class="ks-dest-card__scrim"></span>
+              <span class="ks-dest-card__text">
+                <span class="ks-dest-card__title">Tanzania</span>
+                <span class="ks-dest-card__sub">Serengeti &amp; Ngorongoro</span>
               </span>
             </a>
-            <a href="https://www.kibokosafaris.com/rwanda-tour" class="dest-card reveal">
+            <a href="https://www.kibokosafaris.com/rwanda-tour" class="ks-dest-card ks-reveal">
               <!-- No local gorilla/primate photography available — using nearest available wildlife shot as a stand-in until real Rwanda imagery is supplied -->
               <img
                 src="assets/images/img5.jpeg"
                 alt="Leopard in dense undergrowth"
                 loading="lazy"
               />
-              <span class="dest-card__scrim"></span>
-              <span class="dest-card__text">
-                <span class="dest-card__title">Rwanda</span>
-                <span class="dest-card__sub">Volcanoes National Park</span>
+              <span class="ks-dest-card__scrim"></span>
+              <span class="ks-dest-card__text">
+                <span class="ks-dest-card__title">Rwanda</span>
+                <span class="ks-dest-card__sub">Volcanoes National Park</span>
               </span>
             </a>
-            <a href="https://www.kibokosafaris.com/uganda-tour" class="dest-card reveal">
+            <a href="https://www.kibokosafaris.com/uganda-tour" class="ks-dest-card ks-reveal">
               <img
                 src="assets/images/img10.jpeg"
                 alt="Cape buffalo with oxpecker birds"
                 loading="lazy"
               />
-              <span class="dest-card__scrim"></span>
-              <span class="dest-card__text">
-                <span class="dest-card__title">Uganda</span>
-                <span class="dest-card__sub">Bwindi Impenetrable Forest</span>
+              <span class="ks-dest-card__scrim"></span>
+              <span class="ks-dest-card__text">
+                <span class="ks-dest-card__title">Uganda</span>
+                <span class="ks-dest-card__sub">Bwindi Impenetrable Forest</span>
               </span>
             </a>
-            <a href="#safaris" class="dest-card reveal">
+            <a href="#ks-safaris" class="ks-dest-card ks-reveal">
               <img
                 src="assets/images/img9.jpeg"
                 alt="Pair of white rhinos in the grass"
                 loading="lazy"
               />
-              <span class="dest-card__scrim"></span>
-              <span class="dest-card__text">
-                <span class="dest-card__title">South Africa</span>
-                <span class="dest-card__sub"
+              <span class="ks-dest-card__scrim"></span>
+              <span class="ks-dest-card__text">
+                <span class="ks-dest-card__title">South Africa</span>
+                <span class="ks-dest-card__sub"
                   >Kruger &amp; the Cape Winelands</span
                 >
               </span>
@@ -751,26 +751,26 @@
       </section>
 
       <!-- SAFARI EXPERIENCES -->
-      <section class="safaris" id="safaris">
-        <div class="container">
-          <div class="section-head section-head--center safaris__head">
-            <p class="eyebrow">
-              <span class="safaris__rule" aria-hidden="true"></span>Signature
-              Journeys<span class="safaris__rule" aria-hidden="true"></span>
+      <section class="ks-safaris" id="ks-safaris">
+        <div class="ks-container">
+          <div class="ks-section-head ks-section-head--center ks-safaris__head">
+            <p class="ks-eyebrow">
+              <span class="ks-safaris__rule" aria-hidden="true"></span>Signature
+              Journeys<span class="ks-safaris__rule" aria-hidden="true"></span>
             </p>
 
-            <h2 class="section-title">
-              Most Popular <span class="safaris__accent">Safari Packages</span>
+            <h2 class="ks-section-title">
+              Most Popular <span class="ks-safaris__accent">Safari Packages</span>
             </h2>
-            <!-- <p class="section-sub">
+            <!-- <p class="ks-section-sub">
               A curated collection of journeys across East and Southern Africa,
               each one shaped around the season, the terrain, and the way you
               want to travel.
             </p> -->
           </div>
-          <div class="safari-grid">
-            <article class="safari-card reveal">
-              <div class="safari-card__media">
+          <div class="ks-safari-grid">
+            <article class="ks-safari-card ks-reveal">
+              <div class="ks-safari-card__media">
                 <!-- Reference photo (safari vehicle + elephant) not in assets/images — using nearest available elephant scene as a stand-in -->
                 <img
                   src="assets/images/gallery15.jpg"
@@ -778,20 +778,20 @@
                   loading="lazy"
                 />
               </div>
-              <div class="safari-card__body">
+              <div class="ks-safari-card__body">
                 <h3>10 Days Tanzania Family Safari</h3>
                 <p>
                   Nov 14- Nov 23-2026 Tanzania family safari. Call for
                   Availability! Best 10 Days luxu...
                 </p>
-                <div class="safari-card__foot">
-                  <span class="safari-card__price"
-                    ><span class="safari-card__price-label">From</span
+                <div class="ks-safari-card__foot">
+                  <span class="ks-safari-card__price"
+                    ><span class="ks-safari-card__price-label">From</span
                     >$6,700</span
                   >
                   <a
-                    href="#contact"
-                    class="btn btn--outline-gold btn--sm safari-card__cta"
+                    href="#ks-contact"
+                    class="ks-btn ks-btn--outline-gold ks-btn--sm ks-safari-card__cta"
                     >Explore Safari &amp; Book Online
                     <span aria-hidden="true">&rarr;</span></a
                   >
@@ -799,8 +799,8 @@
               </div>
             </article>
 
-            <article class="safari-card reveal">
-              <div class="safari-card__media">
+            <article class="ks-safari-card ks-reveal">
+              <div class="ks-safari-card__media">
                 <!-- Reference photo (lion cubs in grass) not in assets/images — using nearest available lion scene as a stand-in -->
                 <img
                   src="assets/images/img4.jpg"
@@ -808,20 +808,20 @@
                   loading="lazy"
                 />
               </div>
-              <div class="safari-card__body">
+              <div class="ks-safari-card__body">
                 <h3>14-Days Tanzania Wildlife Safari And Zanzibar Beach</h3>
                 <p>
                   Nov 5- Nov 18- 2026 Tanzania wildlife safari and Zanzibar
                   beach holidays. Price $12,650 ...
                 </p>
-                <div class="safari-card__foot">
-                  <span class="safari-card__price"
-                    ><span class="safari-card__price-label">From</span
+                <div class="ks-safari-card__foot">
+                  <span class="ks-safari-card__price"
+                    ><span class="ks-safari-card__price-label">From</span
                     >$12,650</span
                   >
                   <a
-                    href="#contact"
-                    class="btn btn--outline-gold btn--sm safari-card__cta"
+                    href="#ks-contact"
+                    class="ks-btn ks-btn--outline-gold ks-btn--sm ks-safari-card__cta"
                     >Explore Safari &amp; Book Online
                     <span aria-hidden="true">&rarr;</span></a
                   >
@@ -829,8 +829,8 @@
               </div>
             </article>
 
-            <article class="safari-card reveal">
-              <div class="safari-card__media">
+            <article class="ks-safari-card ks-reveal">
+              <div class="ks-safari-card__media">
                 <!-- Reference photo (zebras and wildebeest at a waterhole) not in assets/images — using nearest available plains-game scene as a stand-in -->
                 <img
                   src="assets/images/gallery8.jpg"
@@ -838,20 +838,20 @@
                   loading="lazy"
                 />
               </div>
-              <div class="safari-card__body">
+              <div class="ks-safari-card__body">
                 <h3>10 DAYS 9 NIGHTS KENYA SAFARI ITINERARY</h3>
                 <p>
                   Dec 27- Jan 5- 2027 Best kenya Safari Itinerary. Call for
                   Availability! After breakf...
                 </p>
-                <div class="safari-card__foot">
-                  <span class="safari-card__price"
-                    ><span class="safari-card__price-label">From</span
+                <div class="ks-safari-card__foot">
+                  <span class="ks-safari-card__price"
+                    ><span class="ks-safari-card__price-label">From</span
                     >$6,800</span
                   >
                   <a
-                    href="#contact"
-                    class="btn btn--outline-gold btn--sm safari-card__cta"
+                    href="#ks-contact"
+                    class="ks-btn ks-btn--outline-gold ks-btn--sm ks-safari-card__cta"
                     >Explore Safari &amp; Book Online
                     <span aria-hidden="true">&rarr;</span></a
                   >
@@ -863,52 +863,52 @@
       </section>
 
       <!-- KILIMANJARO EXPERIENCES -->
-      <section class="safaris" id="kilimanjaro">
-        <div class="container">
-          <div class="section-head section-head--center safaris__head">
-            <p class="eyebrow">
-              <span class="safaris__rule" aria-hidden="true"></span>Signature
-              Treks<span class="safaris__rule" aria-hidden="true"></span>
+      <section class="ks-safaris" id="ks-kilimanjaro">
+        <div class="ks-container">
+          <div class="ks-section-head ks-section-head--center ks-safaris__head">
+            <p class="ks-eyebrow">
+              <span class="ks-safaris__rule" aria-hidden="true"></span>Signature
+              Treks<span class="ks-safaris__rule" aria-hidden="true"></span>
             </p>
-            <h2 class="section-title">
-             Mount  <span class="safaris__accent">Kilimanjaro Climbing</span>
+            <h2 class="ks-section-title">
+             Mount  <span class="ks-safaris__accent">Kilimanjaro Climbing</span>
             </h2>
             
           </div>
-          <div class="safari-grid">
-            <article class="safari-card reveal">
-              <div class="safari-card__media">
+          <div class="ks-safari-grid">
+            <article class="ks-safari-card ks-reveal">
+              <div class="ks-safari-card__media">
                 <img
                   src="assets/images/treeking1.jpg"
                   alt="Safari vehicle with distant mountain ridge"
                   loading="lazy"
                 />
               </div>
-              <div class="safari-card__body">
+              <div class="ks-safari-card__body">
                 <h3>KILIMANJARO LEMOSHO ROUTE</h3>
-                <p class="safari-card__subtitle">
+                <p class="ks-safari-card__subtitle">
                   Kilimanjaro Trekking &ndash; LEMOSHO ROUTE
                 </p>
                 <p>
                   The Kilimanjaro Trekking- Lemesho Route. The Kilimanjaro
                   Lemosho Route is typically...
                 </p>
-                <div class="safari-card__foot">
-                  <span class="safari-card__price"
-                    ><span class="safari-card__price-label">From</span
+                <div class="ks-safari-card__foot">
+                  <span class="ks-safari-card__price"
+                    ><span class="ks-safari-card__price-label">From</span
                     >$1,935</span
                   >
                   <a
-                    href="#contact"
-                    class="btn btn--outline-gold btn--sm safari-card__cta"
+                    href="#ks-contact"
+                    class="ks-btn ks-btn--outline-gold ks-btn--sm ks-safari-card__cta"
                     >More Details <span aria-hidden="true">&rarr;</span></a
                   >
                 </div>
               </div>
             </article>
 
-            <article class="safari-card reveal">
-              <div class="safari-card__media">
+            <article class="ks-safari-card ks-reveal">
+              <div class="ks-safari-card__media">
                 <!-- No dedicated Kilimanjaro trekking photography available locally — using nearest scenic/mountain-backdrop shot as a stand-in -->
                 <img
                   src="assets/images/treeking2.jpg"
@@ -916,139 +916,139 @@
                   loading="lazy"
                 />
               </div>
-              <div class="safari-card__body">
+              <div class="ks-safari-card__body">
                 <h3>Kilimanjaro Trekking &ndash; MACHAME ROUTE</h3>
-                <p class="safari-card__subtitle">KIIMANJARO MACHAME ROUTE</p>
+                <p class="ks-safari-card__subtitle">KIIMANJARO MACHAME ROUTE</p>
                 <p>
                   Kilimanjaro Trekking &ndash; Machame route. It is the second
                   most popular and one of the most ...
                 </p>
-                <div class="safari-card__foot">
-                  <span class="safari-card__price"
-                    ><span class="safari-card__price-label">From</span
+                <div class="ks-safari-card__foot">
+                  <span class="ks-safari-card__price"
+                    ><span class="ks-safari-card__price-label">From</span
                     >$1,910</span
                   >
                   <a
-                    href="#contact"
-                    class="btn btn--outline-gold btn--sm safari-card__cta"
+                    href="#ks-contact"
+                    class="ks-btn ks-btn--outline-gold ks-btn--sm ks-safari-card__cta"
                     >More Details <span aria-hidden="true">&rarr;</span></a
                   >
                 </div>
               </div>
             </article>
 
-            <article class="safari-card reveal">
-              <div class="safari-card__media">
+            <article class="ks-safari-card ks-reveal">
+              <div class="ks-safari-card__media">
                 <img
                   src="assets/images/treeking3.jpeg"
                   alt="Ancient baobab tree against a dramatic sky"
                   loading="lazy"
                 />
               </div>
-              <div class="safari-card__body">
+              <div class="ks-safari-card__body">
                 <h3>KILIMANJARO TREKKING 5 DAY MARANGU ROUTE</h3>
-                <p class="safari-card__subtitle">
+                <p class="ks-safari-card__subtitle">
                   KILIMANJARO TREKKING 5 DAY MARANGU ROUTE.
                 </p>
                 <p>
                   KILIMANJARO TREKKING 5 DAY MARANGU ROUTE. Marangu is the most
                   direct and ...
                 </p>
-                <div class="safari-card__foot">
-                  <span class="safari-card__price"
-                    ><span class="safari-card__price-label">From</span
+                <div class="ks-safari-card__foot">
+                  <span class="ks-safari-card__price"
+                    ><span class="ks-safari-card__price-label">From</span
                     >$1,800</span
                   >
                   <a
-                    href="#contact"
-                    class="btn btn--outline-gold btn--sm safari-card__cta"
+                    href="#ks-contact"
+                    class="ks-btn ks-btn--outline-gold ks-btn--sm ks-safari-card__cta"
                     >More Details <span aria-hidden="true">&rarr;</span></a
                   >
                 </div>
               </div>
             </article>
 
-            <article class="safari-card reveal">
-              <div class="safari-card__media">
+            <article class="ks-safari-card ks-reveal">
+              <div class="ks-safari-card__media">
                 <img
                   src="assets/images/81.jpg"
                   alt="Safari vehicle with distant mountain ridge"
                   loading="lazy"
                 />
               </div>
-              <div class="safari-card__body">
+              <div class="ks-safari-card__body">
                 <h3>Kilimanjaro Trekking &ndash; RONGAI ROUTE</h3>
-                <p class="safari-card__subtitle">KILIMANJARO RONGAI ROUTE</p>
+                <p class="ks-safari-card__subtitle">KILIMANJARO RONGAI ROUTE</p>
                 <p>
                   Kilimanjaro Trekking- Rongai route. The Rongai Route is one of
                   the easiest route and the succ...
                 </p>
-                <div class="safari-card__foot">
-                  <span class="safari-card__price"
-                    ><span class="safari-card__price-label">From</span
+                <div class="ks-safari-card__foot">
+                  <span class="ks-safari-card__price"
+                    ><span class="ks-safari-card__price-label">From</span
                     >$1,600</span
                   >
                   <a
-                    href="#contact"
-                    class="btn btn--outline-gold btn--sm safari-card__cta"
+                    href="#ks-contact"
+                    class="ks-btn ks-btn--outline-gold ks-btn--sm ks-safari-card__cta"
                     >More Details <span aria-hidden="true">&rarr;</span></a
                   >
                 </div>
               </div>
             </article>
 
-            <article class="safari-card reveal">
-              <div class="safari-card__media">
+            <article class="ks-safari-card ks-reveal">
+              <div class="ks-safari-card__media">
                 <img
                   src="assets/images/gallery19.png"
                   alt="Landscape with distant mountains, Ngorongoro"
                   loading="lazy"
                 />
               </div>
-              <div class="safari-card__body">
+              <div class="ks-safari-card__body">
                 <h3>Kilimanjaro Trekking &ndash; UMBWE ROUTE</h3>
-                <p class="safari-card__subtitle">KILIMANJARO UMBWE ROUTE</p>
+                <p class="ks-safari-card__subtitle">KILIMANJARO UMBWE ROUTE</p>
                 <p>
                   Kilimanjaro Trekking- Umbwe route. The Umbwe Route is steeper
                   and shorter than the Machame Rou...
                 </p>
-                <div class="safari-card__foot">
-                  <span class="safari-card__price"
-                    ><span class="safari-card__price-label">From</span
+                <div class="ks-safari-card__foot">
+                  <span class="ks-safari-card__price"
+                    ><span class="ks-safari-card__price-label">From</span
                     >$1,845</span
                   >
                   <a
-                    href="#contact"
-                    class="btn btn--outline-gold btn--sm safari-card__cta"
+                    href="#ks-contact"
+                    class="ks-btn ks-btn--outline-gold ks-btn--sm ks-safari-card__cta"
                     >More Details <span aria-hidden="true">&rarr;</span></a
                   >
                 </div>
               </div>
             </article>
 
-            <article class="safari-card reveal">
-              <div class="safari-card__media">
+            <article class="ks-safari-card ks-reveal">
+              <div class="ks-safari-card__media">
                 <img
                   src="assets/images/20462.jpg"
                   alt="Ancient baobab tree against a dramatic sky"
                   loading="lazy"
                 />
               </div>
-              <div class="safari-card__body">
+              <div class="ks-safari-card__body">
                 <h3>KILIMANJARO TREKKING &ndash; MARANGU ROUTE</h3>
-                <p class="safari-card__subtitle">KILIMANJARO MARANGU ROUTE</p>
+                <p class="ks-safari-card__subtitle">KILIMANJARO MARANGU ROUTE</p>
                 <p>
                   KILIMANJARO TREKKING &ndash; MARANGU ROUTE The Marangu Route
                   is also known as the &ldquo;Coca ...
                 </p>
-                <div class="safari-card__foot">
-                  <span class="safari-card__price"
-                    ><span class="safari-card__price-label">From</span
+                <div class="ks-safari-card__foot">
+                  <span class="ks-safari-card__price"
+                    ><span class="ks-safari-card__price-label">From</span
                     >$1,500</span
                   >
                   <a
-                    href="#contact"
-                    class="btn btn--outline-gold btn--sm safari-card__cta"
+                    href="#ks-contact"
+                    class="ks-btn ks-btn--outline-gold ks-btn--sm ks-safari-card__cta"
                     >More Details <span aria-hidden="true">&rarr;</span></a
                   >
                 </div>
@@ -1059,9 +1059,9 @@
       </section>
 
       <!-- WILDLIFE OF AFRICA -->
-      <section class="wildlife" id="wildlife">
-        <div class="container wildlife__grid">
-          <div class="wildlife__media reveal reveal--img">
+      <section class="ks-wildlife" id="ks-wildlife">
+        <div class="ks-container ks-wildlife__grid">
+          <div class="ks-wildlife__media ks-reveal ks-reveal--img">
             <!-- Reference photo (leopard perched in a tree) not available locally — using nearest available leopard close-up as a stand-in -->
             <img
               src="assets/images/15832.jpg"
@@ -1074,63 +1074,63 @@
               loading="lazy"
             />
           </div>
-          <div class="wildlife__content reveal">
-            <h2 class="wildlife__heading">
+          <div class="ks-wildlife__content ks-reveal">
+            <h2 class="ks-wildlife__heading">
               Here are just a few of the amazing animals you can
-              <span class="wildlife__accent"
+              <span class="ks-wildlife__accent"
                 >see on an African Wildlife safari</span
               >
             </h2>
-            <ul class="wildlife__list">
+            <ul class="ks-wildlife__list">
               <li>
-                <span class="wildlife__name">Lions:</span> These majestic
+                <span class="ks-wildlife__name">Lions:</span> These majestic
                 predators are the kings of the savanna. They can be seen hunting
                 in prides, or relaxing in the shade of a tree.
               </li>
               <li>
-                <span class="wildlife__name">Elephants:</span> These gentle
+                <span class="ks-wildlife__name">Elephants:</span> These gentle
                 giants are the largest land animals on Earth. They can be seen
                 grazing in herds, or bathing in the waterhole.
               </li>
               <li>
-                <span class="wildlife__name">Giraffes:</span> These long-necked
+                <span class="ks-wildlife__name">Giraffes:</span> These long-necked
                 animals are the tallest land mammals on Earth. They can be seen
                 browsing for leaves in the trees, or drinking from the watering
                 hole.
               </li>
               <li>
-                <span class="wildlife__name">Rhinos:</span> These armored
+                <span class="ks-wildlife__name">Rhinos:</span> These armored
                 animals are the second-largest land mammals on Earth. They can
                 be seen grazing in the grasslands, or bathing in the mud.
               </li>
               <li>
-                <span class="wildlife__name">Leopards:</span> These stealthy
+                <span class="ks-wildlife__name">Leopards:</span> These stealthy
                 predators are often seen perched in trees, waiting for their
                 prey to come within reach.
               </li>
               <li>
-                <span class="wildlife__name">Cheetahs:</span> These fastest land
+                <span class="ks-wildlife__name">Cheetahs:</span> These fastest land
                 animals on Earth can reach speeds of up to 70 miles per hour.
                 They can be seen hunting gazelles and other small mammals.
               </li>
               <li>
-                <span class="wildlife__name">Hippopotamuses:</span> These
+                <span class="ks-wildlife__name">Hippopotamuses:</span> These
                 aggressive animals are the third-largest land mammals on Earth.
                 They can be seen grazing in the water, or sunbathing on the
                 banks of the river.
               </li>
               <li>
-                <span class="wildlife__name">Monkeys:</span> These playful
+                <span class="ks-wildlife__name">Monkeys:</span> These playful
                 animals can be seen swinging through the trees, or foraging for
                 food on the ground.
               </li>
               <li>
-                <span class="wildlife__name">Birds:</span> Africa is home to an
+                <span class="ks-wildlife__name">Birds:</span> Africa is home to an
                 incredible variety of birds, from the colorful flamingos of the
                 Serengeti to the majestic eagles of the mountains.
               </li>
             </ul>
-            <p class="wildlife__cta">
+            <p class="ks-wildlife__cta">
               So what are you waiting for? Book your African wildlife safari
               today and start planning your unforgettable adventure!
             </p>
@@ -1139,53 +1139,53 @@
       </section>
 
       <!-- TESTIMONIALS -->
-      <section class="testimonials" id="testimonials">
-        <div class="container">
-          <div class="section-head section-head--center testimonials__head">
-            <p class="eyebrow">Guest Experiences</p>
-            <h2 class="section-title">
+      <section class="ks-testimonials" id="ks-testimonials">
+        <div class="ks-container">
+          <div class="ks-section-head ks-section-head--center ks-testimonials__head">
+            <p class="ks-eyebrow">Guest Experiences</p>
+            <h2 class="ks-section-title">
               Stories From Our
-              <span class="testimonials__accent">Travelers</span>
+              <span class="ks-testimonials__accent">Travelers</span>
             </h2>
-            <p class="section-sub">
+            <p class="ks-section-sub">
               Discover what guests from around the world say about their
               unforgettable journeys with Kiboko Safaris.
             </p>
           </div>
 
-          <div class="testimonials__stats">
-            <div class="testimonials__stat">
-              <span class="testimonials__stat-num">50+</span>
-              <span class="testimonials__stat-label">Safaris Planned</span>
+          <div class="ks-testimonials__stats">
+            <div class="ks-testimonials__stat">
+              <span class="ks-testimonials__stat-num">50+</span>
+              <span class="ks-testimonials__stat-label">Safaris Planned</span>
             </div>
-            <div class="testimonials__stat">
-              <span class="testimonials__stat-num">98%</span>
-              <span class="testimonials__stat-label">Guest Satisfaction</span>
+            <div class="ks-testimonials__stat">
+              <span class="ks-testimonials__stat-num">98%</span>
+              <span class="ks-testimonials__stat-label">Guest Satisfaction</span>
             </div>
-            <div class="testimonials__stat">
-              <span class="testimonials__stat-num">5+</span>
-              <span class="testimonials__stat-label"
+            <div class="ks-testimonials__stat">
+              <span class="ks-testimonials__stat-num">5+</span>
+              <span class="ks-testimonials__stat-label"
                 >Years Combined Experience</span
               >
             </div>
-            <div class="testimonials__stat">
-              <span class="testimonials__stat-num">5-Star</span>
-              <span class="testimonials__stat-label">Rated Experiences</span>
+            <div class="ks-testimonials__stat">
+              <span class="ks-testimonials__stat-num">5-Star</span>
+              <span class="ks-testimonials__stat-label">Rated Experiences</span>
             </div>
           </div>
 
-          <div class="testimonials__carousel" id="testimonialsCarousel">
-            <div class="testimonials__viewport">
-              <div class="testimonials__track" id="testimonialsTrack">
-                <figure class="testimonial-card reveal">
-                  <div class="testimonial-card__head">
-                    <span class="testimonial-card__avatar">JO</span>
-                    <div class="testimonial-card__id">
-                      <span class="testimonial-card__name">Jon</span>
+          <div class="ks-testimonials__carousel" id="ks-testimonialsCarousel">
+            <div class="ks-testimonials__viewport">
+              <div class="ks-testimonials__track" id="ks-testimonialsTrack">
+                <figure class="ks-testimonial-card ks-reveal">
+                  <div class="ks-testimonial-card__head">
+                    <span class="ks-testimonial-card__avatar">JO</span>
+                    <div class="ks-testimonial-card__id">
+                      <span class="ks-testimonial-card__name">Jon</span>
                     </div>
                   </div>
                   <span
-                    class="testimonial-card__stars"
+                    class="ks-testimonial-card__stars"
                     aria-label="5 out of 5 stars"
                     >&#9733;&#9733;&#9733;&#9733;&#9733;</span
                   >
@@ -1198,15 +1198,15 @@
                   </blockquote>
                 </figure>
 
-                <figure class="testimonial-card reveal">
-                  <div class="testimonial-card__head">
-                    <span class="testimonial-card__avatar">ME</span>
-                    <div class="testimonial-card__id">
-                      <span class="testimonial-card__name">Matthew Evans</span>
+                <figure class="ks-testimonial-card ks-reveal">
+                  <div class="ks-testimonial-card__head">
+                    <span class="ks-testimonial-card__avatar">ME</span>
+                    <div class="ks-testimonial-card__id">
+                      <span class="ks-testimonial-card__name">Matthew Evans</span>
                     </div>
                   </div>
                   <span
-                    class="testimonial-card__stars"
+                    class="ks-testimonial-card__stars"
                     aria-label="5 out of 5 stars"
                     >&#9733;&#9733;&#9733;&#9733;&#9733;</span
                   >
@@ -1219,15 +1219,15 @@
                   </blockquote>
                 </figure>
 
-                <figure class="testimonial-card reveal">
-                  <div class="testimonial-card__head">
-                    <span class="testimonial-card__avatar">JF</span>
-                    <div class="testimonial-card__id">
-                      <span class="testimonial-card__name">Jana Fox</span>
+                <figure class="ks-testimonial-card ks-reveal">
+                  <div class="ks-testimonial-card__head">
+                    <span class="ks-testimonial-card__avatar">JF</span>
+                    <div class="ks-testimonial-card__id">
+                      <span class="ks-testimonial-card__name">Jana Fox</span>
                     </div>
                   </div>
                   <span
-                    class="testimonial-card__stars"
+                    class="ks-testimonial-card__stars"
                     aria-label="5 out of 5 stars"
                     >&#9733;&#9733;&#9733;&#9733;&#9733;</span
                   >
@@ -1240,17 +1240,17 @@
                   </blockquote>
                 </figure>
 
-                <figure class="testimonial-card reveal">
-                  <div class="testimonial-card__head">
-                    <span class="testimonial-card__avatar">AC</span>
-                    <div class="testimonial-card__id">
-                      <span class="testimonial-card__name"
+                <figure class="ks-testimonial-card ks-reveal">
+                  <div class="ks-testimonial-card__head">
+                    <span class="ks-testimonial-card__avatar">AC</span>
+                    <div class="ks-testimonial-card__id">
+                      <span class="ks-testimonial-card__name"
                         >Angela Carscadden</span
                       >
                     </div>
                   </div>
                   <span
-                    class="testimonial-card__stars"
+                    class="ks-testimonial-card__stars"
                     aria-label="5 out of 5 stars"
                     >&#9733;&#9733;&#9733;&#9733;&#9733;</span
                   >
@@ -1263,15 +1263,15 @@
                   </blockquote>
                 </figure>
 
-                <figure class="testimonial-card reveal">
-                  <div class="testimonial-card__head">
-                    <span class="testimonial-card__avatar">GL</span>
-                    <div class="testimonial-card__id">
-                      <span class="testimonial-card__name">Greg Lemoine</span>
+                <figure class="ks-testimonial-card ks-reveal">
+                  <div class="ks-testimonial-card__head">
+                    <span class="ks-testimonial-card__avatar">GL</span>
+                    <div class="ks-testimonial-card__id">
+                      <span class="ks-testimonial-card__name">Greg Lemoine</span>
                     </div>
                   </div>
                   <span
-                    class="testimonial-card__stars"
+                    class="ks-testimonial-card__stars"
                     aria-label="5 out of 5 stars"
                     >&#9733;&#9733;&#9733;&#9733;&#9733;</span
                   >
@@ -1287,8 +1287,8 @@
             </div>
 
             <button
-              class="testimonials__arrow testimonials__arrow--prev"
-              id="testiPrev"
+              class="ks-testimonials__arrow ks-testimonials__arrow--prev"
+              id="ks-testiPrev"
               aria-label="Previous reviews"
             >
               <svg
@@ -1303,8 +1303,8 @@
               </svg>
             </button>
             <button
-              class="testimonials__arrow testimonials__arrow--next"
-              id="testiNext"
+              class="ks-testimonials__arrow ks-testimonials__arrow--next"
+              id="ks-testiNext"
               aria-label="Next reviews"
             >
               <svg
@@ -1321,8 +1321,8 @@
           </div>
 
           <div
-            class="testimonials__dots"
-            id="testimonialsDots"
+            class="ks-testimonials__dots"
+            id="ks-testimonialsDots"
             role="tablist"
             aria-label="Review navigation"
           ></div>
@@ -1330,21 +1330,21 @@
       </section>
 
       <!-- GALLERY -->
-      <section class="gallery container">
-        <div class="section-head section-head--center gallery__head">
-          <p class="eyebrow">From the Field</p>
-          <h2 class="section-title">
-            Moments From the <span class="gallery__accent">Wild</span>
+      <section class="ks-gallery ks-container">
+        <div class="ks-section-head ks-section-head--center ks-gallery__head">
+          <p class="ks-eyebrow">From the Field</p>
+          <h2 class="ks-section-title">
+            Moments From the <span class="ks-gallery__accent">Wild</span>
           </h2>
-          <p class="section-sub">
+          <p class="ks-section-sub">
             A glimpse into the landscapes, wildlife, and encounters that define
             every Kiboko journey.
           </p>
         </div>
-        <div class="gallery__grid" id="galleryGrid">
+        <div class="ks-gallery__grid" id="ks-galleryGrid">
           <!-- Placeholder gallery — replace with client's full photo library -->
           <button
-            class="gallery__item gallery__item--tall reveal"
+            class="ks-gallery__item ks-gallery__item--tall ks-reveal"
             data-full="assets/images/gallery12.jpg"
           >
             <img
@@ -1353,7 +1353,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/gallery3.jpg"
           >
             <img
@@ -1362,7 +1362,7 @@
             />
           </button>
           <button
-            class="gallery__item gallery__item--wide reveal"
+            class="ks-gallery__item ks-gallery__item--wide ks-reveal"
             data-full="assets/images/gallery33.jpeg"
           >
             <img
@@ -1371,7 +1371,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/gallery22.jpeg"
           >
             <img
@@ -1380,7 +1380,7 @@
             />
           </button>
           <button
-            class="gallery__item gallery__item--tall reveal"
+            class="ks-gallery__item ks-gallery__item--tall ks-reveal"
             data-full="assets/images/gallery35.jpeg"
           >
             <img
@@ -1389,7 +1389,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/gallery36.jpeg"
           >
             <img
@@ -1398,7 +1398,7 @@
             />
           </button>
           <button
-            class="gallery__item gallery__item--wide reveal"
+            class="ks-gallery__item ks-gallery__item--wide ks-reveal"
             data-full="assets/images/gallery37.jpeg"
           >
             <img
@@ -1407,7 +1407,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/gallery27.jpeg"
           >
             <img
@@ -1416,7 +1416,7 @@
             />
           </button>
           <button
-            class="gallery__item gallery__item--tall reveal"
+            class="ks-gallery__item ks-gallery__item--tall ks-reveal"
             data-full="assets/images/gallery28.jpeg"
             hidden
           >
@@ -1426,7 +1426,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/gallery29.jpeg"
             hidden
           >
@@ -1436,7 +1436,7 @@
             />
           </button>
           <button
-            class="gallery__item gallery__item--wide reveal"
+            class="ks-gallery__item ks-gallery__item--wide ks-reveal"
             data-full="assets/images/gallery30.jpeg"
             hidden
           >
@@ -1446,7 +1446,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/gallery31.jpeg"
             hidden
           >
@@ -1456,7 +1456,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/gallery32.jpeg"
             hidden
           >
@@ -1466,7 +1466,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/gallery24.jpeg"
             hidden
           >
@@ -1476,7 +1476,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/gallery23.png"
             hidden
           >
@@ -1486,7 +1486,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/gallery18.jpeg"
             hidden
           >
@@ -1496,7 +1496,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/gallery25.jpeg"
             hidden
           >
@@ -1506,7 +1506,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/gallery19.JPG"
             hidden
           >
@@ -1516,7 +1516,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/gallery20.png"
             hidden
           >
@@ -1526,7 +1526,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/gallery21.jpeg"
             hidden
           >
@@ -1536,8 +1536,8 @@
             />
           </button>
         </div>
-        <div class="gallery__more">
-          <button class="btn btn--outline-gold" id="galleryViewMore">
+        <div class="ks-gallery__more">
+          <button class="ks-btn ks-btn--outline-gold" id="ks-galleryViewMore">
             View More Photos
           </button>
         </div>
@@ -1546,18 +1546,18 @@
 
 
        <!-- GALLERY -->
-      <section class="gallery container">
-        <div class="section-head section-head--center gallery__head">
+      <section class="ks-gallery ks-container">
+        <div class="ks-section-head ks-section-head--center ks-gallery__head">
           
-          <h2 class="section-title">
-            KIBOKO SAFARIS  <span class="gallery__accent">Tour Gallery</span>
+          <h2 class="ks-section-title">
+            KIBOKO SAFARIS  <span class="ks-gallery__accent">Tour Gallery</span>
           </h2>
           
         </div>
-        <div class="gallery__grid" id="galleryGrid">
+        <div class="ks-gallery__grid" id="ks-tourGalleryGrid">
           <!-- Placeholder gallery — replace with client's full photo library -->
           <button
-            class="gallery__item gallery__item--tall reveal"
+            class="ks-gallery__item ks-gallery__item--tall ks-reveal"
             data-full="assets/images/kiboko-galr1.jpeg"
           >
             <img
@@ -1566,7 +1566,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/kiboko-galr2.jpeg"
           >
             <img
@@ -1575,7 +1575,7 @@
             />
           </button>
           <button
-            class="gallery__item gallery__item--wide reveal"
+            class="ks-gallery__item ks-gallery__item--wide ks-reveal"
             data-full="assets/images/kiboko-galr3.jpeg"
           >
             <img
@@ -1584,7 +1584,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/kiboko-galr4.jpeg"
           >
             <img
@@ -1593,7 +1593,7 @@
             />
           </button>
           <button
-            class="gallery__item gallery__item--tall reveal"
+            class="ks-gallery__item ks-gallery__item--tall ks-reveal"
             data-full="assets/images/5.jpg"
             hidden
           >
@@ -1603,7 +1603,7 @@
             />
           </button>
           <button
-            class="gallery__item reveal"
+            class="ks-gallery__item ks-reveal"
             data-full="assets/images/6.jpg"
             hidden
           >
@@ -1615,8 +1615,8 @@
          
           
         </div>
-        <!-- <div class="gallery__more">
-          <button class="btn btn--outline-gold" id="galleryViewMore">
+        <!-- <div class="ks-gallery__more">
+          <button class="ks-btn ks-btn--outline-gold" id="ks-galleryViewMore">
             View More Photos
           </button>
         </div> -->
@@ -1626,71 +1626,46 @@
 
 
 
-      <!-- AFFILIATES, ASSOCIATIONS & PARTNERSHIPS -->
-      <!-- <section class="affiliates">
-    <div class="container">
-      <h2 class="affiliates__title">Affiliates, Associations &amp; Partnerships</h2>
-      <div class="affiliates__grid">
-        <div class="affiliates__box">
-          <image-slot id="affiliate-indy-chamber" shape="rect" fit="contain" placeholder="Indy Chamber logo"></image-slot>
-        </div>
-        <div class="affiliates__box">
-          <image-slot id="affiliate-aza" shape="rect" fit="contain" placeholder="Association of Zoos &amp; Aquariums — Commercial Member logo"></image-slot>
-        </div>
-        <div class="affiliates__box">
-          <image-slot id="affiliate-osage-hills" shape="rect" fit="contain" placeholder="Osage Hills Lodge logo"></image-slot>
-        </div>
-        <div class="affiliates__box">
-          <image-slot id="affiliate-asta" shape="rect" fit="contain" placeholder="ASTA — American Society of Travel Advisors logo"></image-slot>
-        </div>
-        <div class="affiliates__box">
-          <image-slot id="affiliate-attia" shape="rect" fit="contain" placeholder="Adventure Travel Trade Association logo"></image-slot>
-        </div>
-        <div class="affiliates__box">
-          <image-slot id="affiliate-apata" shape="rect" fit="contain" placeholder="APATA — Association for the Promotion of Tourism to Africa logo"></image-slot>
-        </div>
-      </div>
-    </div>
-  </section> -->
+
 
       <!-- AFFILIATES, ASSOCIATIONS & PARTNERSHIPS -->
-      <section class="affiliates">
-        <div class="container">
-          <h2 class="affiliates__title">
+      <section class="ks-affiliates">
+        <div class="ks-container">
+          <h2 class="ks-affiliates__title">
             Affiliates, Associations &amp; Partnerships
           </h2>
 
-          <div class="affiliates__grid">
-            <div class="affiliates__box">
+          <div class="ks-affiliates__grid">
+            <div class="ks-affiliates__box">
               <img src="assets/images/safari-brand2.png" alt="Indy Chamber" />
             </div>
 
-            <div class="affiliates__box">
+            <div class="ks-affiliates__box">
               <img
                 src="assets/images/safari-brand1.png"
                 alt="Association of Zoos & Aquariums"
               />
             </div>
 
-            <div class="affiliates__box">
+            <div class="ks-affiliates__box">
               <img
                 src="assets/images/safari-brand3.png"
                 alt="Osage Hills Lodge"
               />
             </div>
 
-            <div class="affiliates__box">
+            <div class="ks-affiliates__box">
               <img src="assets/images/safari-brand6.png" alt="ASTA" />
             </div>
 
-            <div class="affiliates__box">
+            <div class="ks-affiliates__box">
               <img
                 src="assets/images/safari-brand5.png"
                 alt="Adventure Travel Trade Association"
               />
             </div>
 
-            <div class="affiliates__box">
+            <div class="ks-affiliates__box">
               <a
                 href="https://www.osotuahutslodge.com/"
                 target="_blank"
@@ -1704,15 +1679,15 @@
       </section>
 
       <!-- EXPLORE MORE -->
-      <section class="explore-more">
-        <div class="container">
-          <h2 class="section-title explore-more__title">Explore More</h2>
-          <div class="explore-more__columns">
-            <ul class="explore-more__list">
+      <section class="ks-explore-more">
+        <div class="ks-container">
+          <h2 class="ks-section-title ks-explore-more__title">Explore More</h2>
+          <div class="ks-explore-more__columns">
+            <ul class="ks-explore-more__list">
               <li>
                 <a
                   href="https://www.kibokosafaris.com/african-safari-tour-package-from-usa"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >African Safari Tour Package From USA
                   <span aria-hidden="true">&rarr;</span></a
                 >
@@ -1720,7 +1695,7 @@
               <li>
                 <a
                   href="https://www.kibokosafaris.com/all-inclusive-african-safari-vacation-packages"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >All Inclusive African Safari Vacation Packages
                   <span aria-hidden="true">&rarr;</span></a
                 >
@@ -1728,7 +1703,7 @@
               <li>
                 <a
                   href="https://www.kibokosafaris.com/all-inclusive-top-africa-safari-hotels"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >All Inclusive Top Africa Safari Hotels
                   <span aria-hidden="true">&rarr;</span></a
                 >
@@ -1736,7 +1711,7 @@
               <li>
                 <a
                   href="https://www.kibokosafaris.com/luxury-african-safari-tours-for-couples"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >Luxury African Safari Tours For Couples
                   <span aria-hidden="true">&rarr;</span></a
                 >
@@ -1744,7 +1719,7 @@
               <li>
                 <a
                   href="https://www.kibokosafaris.com/best-tanzania-safari-destinations"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >Best Tanzania Safari Destinations
                   <span aria-hidden="true">&rarr;</span></a
                 >
@@ -1752,17 +1727,17 @@
               <li>
                 <a
                   href="https://www.kibokosafaris.com/zanzibar-safari-ground-tour-operators"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >Zanzibar Safari Ground Tour Operators
                   <span aria-hidden="true">&rarr;</span></a
                 >
               </li>
             </ul>
-            <ul class="explore-more__list">
+            <ul class="ks-explore-more__list">
               <li>
                 <a
                   href="https://www.kibokosafaris.com/mount-kilimanjaro-climbing-tours"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >Mount Kilimanjaro Climbing Tours
                   <span aria-hidden="true">&rarr;</span></a
                 >
@@ -1770,7 +1745,7 @@
               <li>
                 <a
                   href="https://www.kibokosafaris.com/tanzania-budget-camping-safari"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >Tanzania Budget Camping Safari
                   <span aria-hidden="true">&rarr;</span></a
                 >
@@ -1778,7 +1753,7 @@
               <li>
                 <a
                   href="https://www.kibokosafaris.com/what-is-the-best-month-to-visit-africa"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >What Is The Best Month To Visit Africa
                   <span aria-hidden="true">&rarr;</span></a
                 >
@@ -1786,7 +1761,7 @@
               <li>
                 <a
                   href="https://www.kibokosafaris.com/luxury-african-safari-vacation-packages"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >Luxury African Safari Vacation Packages
                   <span aria-hidden="true">&rarr;</span></a
                 >
@@ -1794,7 +1769,7 @@
               <li>
                 <a
                   href="https://www.kibokosafaris.com/east-africa-safaris-ground-handler-travel-professional"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >East Africa Safaris Ground Handler Travel Professional
                   <span aria-hidden="true">&rarr;</span></a
                 >
@@ -1802,17 +1777,17 @@
               <li>
                 <a
                   href="https://www.kibokosafaris.com/best-african-safari-ground-tour-operator"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >Best African Safari Ground Tour Operator
                   <span aria-hidden="true">&rarr;</span></a
                 >
               </li>
             </ul>
-            <ul class="explore-more__list">
+            <ul class="ks-explore-more__list">
               <li>
                 <a
                   href="https://www.kibokosafaris.com/how-much-does-it-cost-to-go-to-africa-from-the-usa"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >How Much Does It Cost To Go To Africa From The USA
                   <span aria-hidden="true">&rarr;</span></a
                 >
@@ -1820,7 +1795,7 @@
               <li>
                 <a
                   href="https://www.kibokosafaris.com/how-much-is-2-weeks-trip-to-africa"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >How Much Is 2 Weeks Trip To Africa
                   <span aria-hidden="true">&rarr;</span></a
                 >
@@ -1828,7 +1803,7 @@
               <li>
                 <a
                   href="https://www.kibokosafaris.com/how-much-does-an-african-vacation-cost"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >How Much Does An African Vacations Cost
                   <span aria-hidden="true">&rarr;</span></a
                 >
@@ -1836,7 +1811,7 @@
               <li>
                 <a
                   href="https://www.kibokosafaris.com/tanzania-safari-ground-handler-tour-operator"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >Tanzania Safari Ground Handler Tour Operator
                   <span aria-hidden="true">&rarr;</span></a
                 >
@@ -1844,14 +1819,14 @@
               <li>
                 <a
                   href="https://www.kibokosafaris.com/zoo-trips-to-africa"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >Zoo Trips To Africa <span aria-hidden="true">&rarr;</span></a
                 >
               </li>
               <li>
                 <a
                   href="https://www.kibokosafaris.com/kenya-safari-ground-handler-tour-operator"
-                  class="explore-more__link"
+                  class="ks-explore-more__link"
                   >Kenya Safari Ground Handler Tour Operator
                   <span aria-hidden="true">&rarr;</span></a
                 >
@@ -1862,26 +1837,26 @@
       </section>
 
       <!-- FINAL CTA -->
-      <section class="final-cta" id="contact">
-        <div class="final-cta__media">
+      <section class="ks-final-cta" id="ks-contact">
+        <div class="ks-final-cta__media">
           <img src="assets/images/cta.jpg" alt="" />
-          <div class="final-cta__scrim"></div>
+          <div class="ks-final-cta__scrim"></div>
         </div>
-        <div class="container final-cta__content">
-          <p class="final-cta__eyebrow">Your Journey Awaits</p>
+        <div class="ks-container ks-final-cta__content">
+          <p class="ks-final-cta__eyebrow">Your Journey Awaits</p>
           <h2>Wake up to the Serengeti at sunrise.</h2>
           <p>
             From the migration crossing the Mara River to quiet evenings under
             lodge canvas, your safari is built around the moments you've been
             imagining.
           </p>
-          <div class="final-cta__actions">
+          <div class="ks-final-cta__actions">
             <a
               href="mailto:kibokosafari1@gmail.com"
-              class="btn btn--gold btn--lg"
+              class="ks-btn ks-btn--gold ks-btn--lg"
               >Start Planning My Safari</a
             >
-            <a href="tel:+13174384412" class="btn btn--outline-light"
+            <a href="tel:+13174384412" class="ks-btn ks-btn--outline-light"
               >Call a Consultant</a
             >
           </div>
@@ -1890,12 +1865,12 @@
     </main>
 
     <!-- ============================================================
-     FOOTER  (WordPress: footer.php)
+     FOOTER — Laravel: extract to a footer partial (e.g. resources/views/partials/homepage-footer.blade.php)
      ============================================================ -->
-    <footer class="site-footer">
-      <div class="container site-footer__top">
-        <div class="site-footer__brand">
-          <div class="site-footer__logo">
+    <footer class="ks-site-footer">
+      <div class="ks-container ks-site-footer__top">
+        <div class="ks-site-footer__brand">
+          <div class="ks-site-footer__logo">
             <img
               src="https://www.kibokosafaris.com/frontassets/images/logo-1.png"
               alt="Kiboko Safaris"
@@ -1903,14 +1878,14 @@
               height="78"
             />
           </div>
-          <p class="site-footer__tagline">
+          <p class="ks-site-footer__tagline">
             Crafting Extraordinary African Journeys
           </p>
           <p>
             Travel, Leisure and Tourism. We have been one of the leading African
             safari tour operators for decades — let our experience work for you.
           </p>
-          <div class="site-footer__social">
+          <div class="ks-site-footer__social">
             <a
               href="https://www.facebook.com/Kiboko-Safaris-Tour-114650844907501"
               aria-label="Facebook"
@@ -1961,7 +1936,7 @@
           </div>
         </div>
 
-        <nav class="site-footer__col" aria-label="Safari links">
+        <nav class="ks-site-footer__col" aria-label="Safari links">
           <h4>Safari Links</h4>
           <ul>
             <li><a href="#">Tanzania Safaris</a></li>
@@ -1974,7 +1949,7 @@
           </ul>
         </nav>
 
-        <nav class="site-footer__col" aria-label="Kilimanjaro trekking">
+        <nav class="ks-site-footer__col" aria-label="Kilimanjaro trekking">
           <h4>Kilimanjaro Trekking</h4>
           <ul>
             <li><a href="#">About Kilimanjaro</a></li>
@@ -1984,7 +1959,7 @@
           </ul>
         </nav>
 
-        <div class="site-footer__col">
+        <div class="ks-site-footer__col">
           <h4>Contact</h4>
           <address>
             <a href="tel:+13174384412">+1 (317) 438-4412</a>
@@ -1994,30 +1969,30 @@
         </div>
       </div>
 
-      <div class="site-footer__divider" aria-hidden="true"></div>
+      <div class="ks-site-footer__divider" aria-hidden="true"></div>
 
-      <div class="container site-footer__bottom">
-        <p class="site-footer__copyright">
+      <div class="ks-container ks-site-footer__bottom">
+        <p class="ks-site-footer__copyright">
           &copy; 2026 Kiboko Safaris. All Rights Reserved.
         </p>
-        <p class="site-footer__credit">
+        <p class="ks-site-footer__credit">
           Designed &amp; Developed by <a href="#">DUENCY IT SERVICE</a>
         </p>
       </div>
     </footer>
 
     <!-- Lightbox overlay used by the gallery -->
-    <div class="lightbox" id="lightbox" hidden>
+    <div class="ks-lightbox" id="ks-lightbox" hidden>
       <button
-        class="lightbox__close"
-        id="lightboxClose"
+        class="ks-lightbox__close"
+        id="ks-lightboxClose"
         aria-label="Close image"
       >
         &times;
       </button>
       <button
-        class="lightbox__arrow lightbox__arrow--prev"
-        id="lightboxPrev"
+        class="ks-lightbox__arrow ks-lightbox__arrow--prev"
+        id="ks-lightboxPrev"
         aria-label="Previous image"
       >
         <svg
@@ -2031,10 +2006,10 @@
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
       </button>
-      <img alt="" id="lightboxImage" />
+      <img alt="" id="ks-lightboxImage" />
       <button
-        class="lightbox__arrow lightbox__arrow--next"
-        id="lightboxNext"
+        class="ks-lightbox__arrow ks-lightbox__arrow--next"
+        id="ks-lightboxNext"
         aria-label="Next image"
       >
         <svg
@@ -2048,9 +2023,10 @@
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
       </button>
-      <span class="lightbox__counter" id="lightboxCounter"></span>
+      <span class="ks-lightbox__counter" id="ks-lightboxCounter"></span>
     </div>
 
+    </div>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

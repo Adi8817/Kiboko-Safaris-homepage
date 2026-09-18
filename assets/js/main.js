@@ -1,4 +1,10 @@
 /* ==========================================================================
+   Kiboko Safaris — homepage behavior (Laravel integration build)
+   Wrapped in an IIFE; no globals. All selectors reference "ks-" prefixed
+   IDs/classes to avoid colliding with existing site scripts.
+   ========================================================================== */
+
+/* ==========================================================================
    Kiboko Safaris — main.js
    Vanilla JS only. Handles UI behavior: sticky header state, mobile menu,
    dropdown accordions on mobile, scroll-reveal animations, gallery lightbox.
@@ -9,10 +15,10 @@
   'use strict';
 
   /* ---------- Hero slider ---------- */
-  var heroSlides = document.querySelectorAll('.hero-slide');
-  var heroDots = document.querySelectorAll('.hero__dot');
-  var heroPrev = document.getElementById('heroPrev');
-  var heroNext = document.getElementById('heroNext');
+  var heroSlides = document.querySelectorAll('.ks-hero-slide');
+  var heroDots = document.querySelectorAll('.ks-hero__dot');
+  var heroPrev = document.getElementById('ks-heroPrev');
+  var heroNext = document.getElementById('ks-heroNext');
   var heroIndex = 0;
   var heroTimer;
   var heroHoverPaused = false;
@@ -23,10 +29,10 @@
   function goToHeroSlide(i) {
     heroIndex = (i + heroSlides.length) % heroSlides.length;
     heroSlides.forEach(function (slide, idx) {
-      slide.classList.toggle('is-active', idx === heroIndex);
+      slide.classList.toggle('ks-is-active', idx === heroIndex);
     });
     heroDots.forEach(function (dot, idx) {
-      dot.classList.toggle('is-active', idx === heroIndex);
+      dot.classList.toggle('ks-is-active', idx === heroIndex);
       dot.setAttribute('aria-selected', idx === heroIndex ? 'true' : 'false');
     });
   }
@@ -47,7 +53,7 @@
         stopHeroAutoplay(); startHeroAutoplay();
       });
     });
-    var heroSection = document.getElementById('heroSlider');
+    var heroSection = document.getElementById('ks-heroSlider');
     heroSection.addEventListener('mouseenter', function () {
       if (window.matchMedia('(hover: hover)').matches) {
         heroHoverPaused = true;
@@ -88,31 +94,31 @@
   }
 
   /* ---------- Sticky header shadow on scroll ---------- */
-  var header = document.getElementById('site-header');
+  var header = document.getElementById('ks-site-header');
   function onScroll() {
     if (window.scrollY > 8) {
-      header.classList.add('is-scrolled');
+      header.classList.add('ks-is-scrolled');
     } else {
-      header.classList.remove('is-scrolled');
+      header.classList.remove('ks-is-scrolled');
     }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
   /* ---------- Mobile menu toggle ---------- */
-  var navToggle = document.getElementById('navToggle');
-  var primaryNav = document.getElementById('primaryNav');
+  var navToggle = document.getElementById('ks-navToggle');
+  var primaryNav = document.getElementById('ks-primaryNav');
 
   function closeMobileMenu() {
     navToggle.setAttribute('aria-expanded', 'false');
-    primaryNav.classList.remove('is-open');
+    primaryNav.classList.remove('ks-is-open');
     document.body.style.overflow = '';
   }
 
   navToggle.addEventListener('click', function () {
     var isOpen = navToggle.getAttribute('aria-expanded') === 'true';
     navToggle.setAttribute('aria-expanded', String(!isOpen));
-    primaryNav.classList.toggle('is-open', !isOpen);
+    primaryNav.classList.toggle('ks-is-open', !isOpen);
     document.body.style.overflow = !isOpen ? 'hidden' : '';
   });
 
@@ -122,30 +128,30 @@
   });
 
   /* ---------- Dropdown accordions (mobile) / hover (desktop via CSS) ---------- */
-  var dropdownParents = document.querySelectorAll('.has-dropdown');
-  var subDropdownParents = document.querySelectorAll('.dropdown__has-sub');
+  var dropdownParents = document.querySelectorAll('.ks-has-dropdown');
+  var subDropdownParents = document.querySelectorAll('.ks-dropdown__has-sub');
 
   function closeAllSubmenus() {
     subDropdownParents.forEach(function (s) {
-      s.classList.remove('is-open');
-      s.querySelector(':scope > .dropdown__sub-trigger').setAttribute('aria-expanded', 'false');
+      s.classList.remove('ks-is-open');
+      s.querySelector(':scope > .ks-dropdown__sub-trigger').setAttribute('aria-expanded', 'false');
     });
   }
 
   dropdownParents.forEach(function (parent) {
-    var trigger = parent.querySelector(':scope > .primary-nav__link');
+    var trigger = parent.querySelector(':scope > .ks-primary-nav__link');
     trigger.addEventListener('click', function (e) {
       var isDesktop = window.matchMedia('(min-width: 1100px)').matches;
       if (isDesktop) e.preventDefault(); /* desktop: allow click as a hover fallback, not just CSS :hover / :focus-within */
 
-      var isOpen = parent.classList.contains('is-open');
+      var isOpen = parent.classList.contains('ks-is-open');
       dropdownParents.forEach(function (p) {
-        p.classList.remove('is-open');
-        p.querySelector(':scope > .primary-nav__link').setAttribute('aria-expanded', 'false');
+        p.classList.remove('ks-is-open');
+        p.querySelector(':scope > .ks-primary-nav__link').setAttribute('aria-expanded', 'false');
       });
       closeAllSubmenus();
       if (!isOpen) {
-        parent.classList.add('is-open');
+        parent.classList.add('ks-is-open');
         trigger.setAttribute('aria-expanded', 'true');
       }
     });
@@ -155,9 +161,9 @@
       var isDesktop = window.matchMedia('(min-width: 1100px)').matches;
       if (!isDesktop) return;
       dropdownParents.forEach(function (p) {
-        if (p !== parent && p.classList.contains('is-open')) {
-          p.classList.remove('is-open');
-          p.querySelector(':scope > .primary-nav__link').setAttribute('aria-expanded', 'false');
+        if (p !== parent && p.classList.contains('ks-is-open')) {
+          p.classList.remove('ks-is-open');
+          p.querySelector(':scope > .ks-primary-nav__link').setAttribute('aria-expanded', 'false');
           closeAllSubmenus();
         }
       });
@@ -166,16 +172,16 @@
 
   /* ---------- Destinations: nested circuit submenus ---------- */
   subDropdownParents.forEach(function (sub) {
-    var subTrigger = sub.querySelector(':scope > .dropdown__sub-trigger');
+    var subTrigger = sub.querySelector(':scope > .ks-dropdown__sub-trigger');
     subTrigger.addEventListener('click', function (e) {
       e.preventDefault(); /* toggles the nested submenu (desktop flyout / mobile accordion) */
-      var isOpen = sub.classList.contains('is-open');
-      sub.parentElement.querySelectorAll(':scope > .dropdown__has-sub').forEach(function (s) {
-        s.classList.remove('is-open');
-        s.querySelector(':scope > .dropdown__sub-trigger').setAttribute('aria-expanded', 'false');
+      var isOpen = sub.classList.contains('ks-is-open');
+      sub.parentElement.querySelectorAll(':scope > .ks-dropdown__has-sub').forEach(function (s) {
+        s.classList.remove('ks-is-open');
+        s.querySelector(':scope > .ks-dropdown__sub-trigger').setAttribute('aria-expanded', 'false');
       });
       if (!isOpen) {
-        sub.classList.add('is-open');
+        sub.classList.add('ks-is-open');
         subTrigger.setAttribute('aria-expanded', 'true');
       }
     });
@@ -184,10 +190,10 @@
     sub.addEventListener('mouseenter', function () {
       var isDesktop = window.matchMedia('(min-width: 1100px)').matches;
       if (!isDesktop) return;
-      sub.parentElement.querySelectorAll(':scope > .dropdown__has-sub').forEach(function (s) {
-        if (s !== sub && s.classList.contains('is-open')) {
-          s.classList.remove('is-open');
-          s.querySelector(':scope > .dropdown__sub-trigger').setAttribute('aria-expanded', 'false');
+      sub.parentElement.querySelectorAll(':scope > .ks-dropdown__has-sub').forEach(function (s) {
+        if (s !== sub && s.classList.contains('ks-is-open')) {
+          s.classList.remove('ks-is-open');
+          s.querySelector(':scope > .ks-dropdown__sub-trigger').setAttribute('aria-expanded', 'false');
         }
       });
     });
@@ -199,9 +205,9 @@
     if (!isDesktop) return;
     if (primaryNav.contains(e.target)) return;
     dropdownParents.forEach(function (p) {
-      if (p.classList.contains('is-open')) {
-        p.classList.remove('is-open');
-        p.querySelector(':scope > .primary-nav__link').setAttribute('aria-expanded', 'false');
+      if (p.classList.contains('ks-is-open')) {
+        p.classList.remove('ks-is-open');
+        p.querySelector(':scope > .ks-primary-nav__link').setAttribute('aria-expanded', 'false');
       }
     });
     closeAllSubmenus();
@@ -211,36 +217,36 @@
   window.addEventListener('resize', function () {
     if (window.matchMedia('(min-width: 1100px)').matches) {
       closeMobileMenu();
-      dropdownParents.forEach(function (p) { p.classList.remove('is-open'); });
+      dropdownParents.forEach(function (p) { p.classList.remove('ks-is-open'); });
       closeAllSubmenus();
     }
   });
 
   /* ---------- Scroll-reveal animation ---------- */
-  var revealEls = document.querySelectorAll('.reveal');
+  var revealEls = document.querySelectorAll('.ks-reveal');
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
+          entry.target.classList.add('ks-in-view');
           observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.15 });
     revealEls.forEach(function (el) { observer.observe(el); });
   } else {
-    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+    revealEls.forEach(function (el) { el.classList.add('ks-in-view'); });
   }
 
   /* ---------- Gallery: view more ---------- */
-  var galleryViewMoreBtn = document.getElementById('galleryViewMore');
-  var galleryHiddenItems = Array.prototype.slice.call(document.querySelectorAll('.gallery__item[hidden]'));
+  var galleryViewMoreBtn = document.getElementById('ks-galleryViewMore');
+  var galleryHiddenItems = Array.prototype.slice.call(document.querySelectorAll('.ks-gallery__item[hidden]'));
   if (galleryViewMoreBtn) {
     galleryViewMoreBtn.addEventListener('click', function () {
       galleryHiddenItems.forEach(function (item) {
         item.hidden = false;
         requestAnimationFrame(function () {
-          requestAnimationFrame(function () { item.classList.add('in-view'); });
+          requestAnimationFrame(function () { item.classList.add('ks-in-view'); });
         });
       });
       galleryViewMoreBtn.hidden = true;
@@ -248,13 +254,13 @@
   }
 
   /* ---------- Gallery lightbox ---------- */
-  var lightbox = document.getElementById('lightbox');
-  var lightboxImage = document.getElementById('lightboxImage');
-  var lightboxClose = document.getElementById('lightboxClose');
-  var lightboxPrev = document.getElementById('lightboxPrev');
-  var lightboxNext = document.getElementById('lightboxNext');
-  var lightboxCounter = document.getElementById('lightboxCounter');
-  var galleryItems = Array.prototype.slice.call(document.querySelectorAll('.gallery__item'));
+  var lightbox = document.getElementById('ks-lightbox');
+  var lightboxImage = document.getElementById('ks-lightboxImage');
+  var lightboxClose = document.getElementById('ks-lightboxClose');
+  var lightboxPrev = document.getElementById('ks-lightboxPrev');
+  var lightboxNext = document.getElementById('ks-lightboxNext');
+  var lightboxCounter = document.getElementById('ks-lightboxCounter');
+  var galleryItems = Array.prototype.slice.call(document.querySelectorAll('.ks-gallery__item'));
   var lightboxIndex = 0;
 
   function updateLightboxImage() {
@@ -314,13 +320,13 @@
   }, { passive: true });
 
   /* ---------- Testimonial carousel ---------- */
-  var testiTrack = document.getElementById('testimonialsTrack');
+  var testiTrack = document.getElementById('ks-testimonialsTrack');
   if (testiTrack) {
     var testiCards = Array.prototype.slice.call(testiTrack.children);
-    var testiDotsWrap = document.getElementById('testimonialsDots');
-    var testiPrev = document.getElementById('testiPrev');
-    var testiNext = document.getElementById('testiNext');
-    var testiCarousel = document.getElementById('testimonialsCarousel');
+    var testiDotsWrap = document.getElementById('ks-testimonialsDots');
+    var testiPrev = document.getElementById('ks-testiPrev');
+    var testiNext = document.getElementById('ks-testiNext');
+    var testiCarousel = document.getElementById('ks-testimonialsCarousel');
     var testiIndex = 0;
     var testiPerView = 1;
     var testiTimer;
@@ -340,7 +346,7 @@
       var count = testiMaxIndex() + 1;
       for (var i = 0; i < count; i++) {
         var dot = document.createElement('button');
-        dot.className = 'testimonials__dot' + (i === testiIndex ? ' is-active' : '');
+        dot.className = 'ks-testimonials__dot' + (i === testiIndex ? ' ks-is-active' : '');
         dot.setAttribute('role', 'tab');
         dot.setAttribute('aria-label', 'Show review ' + (i + 1));
         dot.setAttribute('aria-selected', i === testiIndex ? 'true' : 'false');
@@ -353,7 +359,7 @@
 
     function updateTestiDots() {
       Array.prototype.forEach.call(testiDotsWrap.children, function (dot, i) {
-        dot.classList.toggle('is-active', i === testiIndex);
+        dot.classList.toggle('ks-is-active', i === testiIndex);
         dot.setAttribute('aria-selected', i === testiIndex ? 'true' : 'false');
       });
     }
